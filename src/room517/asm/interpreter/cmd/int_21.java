@@ -1,5 +1,7 @@
 package room517.asm.interpreter.cmd;
 
+import room517.asm.interpreter.register.Register;
+
 import java.io.IOException;
 
 /**
@@ -16,25 +18,25 @@ public class int_21 extends cmd {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        reg.set("al", (int)ch);
+        Register.set("al", (int)ch);
     }
     void func_ah2()
     {
-        System.out.print((char)reg.get("dl"));
+        System.out.print((char)Register.get("dl"));
     }
     void func_ah3()
     {
-        System.out.print(reg.get("dl"));
+        System.out.print(Register.get("dl"));
     }
     @Override
     public void func() {
-        if (reg.get("ah") == 1) {
+        if (Register.get("ah") == 1) {
             func_ah1();
         }
-        else if (reg.get("ah") == 2) {
+        else if (Register.get("ah") == 2) {
             func_ah2();
         }
-        else if (reg.get("ah") == 3) {
+        else if (Register.get("ah") == 3) {
             func_ah3();
         }
     }

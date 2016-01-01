@@ -1,5 +1,7 @@
 package room517.asm.interpreter.cmd;
 
+import room517.asm.interpreter.register.Register;
+
 /**
  * Created by Henry on 2015/12/31.
  *
@@ -11,16 +13,11 @@ public class loop extends cmd {
         operand_1 = o1;
         ptr = p;
     }
-    public loop()
-    {
-        operand_1 = "";
-        ptr = null;
-    }
 
     @Override
     public void func() {
-        reg.set("cx", reg.get("cx") - 1);
-        if (reg.get("cx") > 0)
+        Register.set("cx", Register.get("cx") - 1);
+        if (Register.get("cx") > 0)
         {
             cmd_buffer p;
             p = label_buf;

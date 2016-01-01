@@ -1,5 +1,7 @@
 package room517.asm.interpreter.cmd;
 
+import room517.asm.interpreter.register.Register;
+
 /**
  * Created by Henry on 2015/12/31.
  *
@@ -9,14 +11,10 @@ public class jl extends jmp{
     {
         super(o1, p);
     }
-    public jl()
-    {
-        super();
-    }
 
     @Override
     public void func() {
-        if (reg.get("bh") < reg.get("dh"))
+        if (Register.get("bh") < Register.get("dh"))
         {
             jump(operand_1);
         }

@@ -9,8 +9,4 @@ public class jg extends jmp {
     {
         super(o1, p);
     }
-    public jg()
-    {
-        super();
-    }
 }

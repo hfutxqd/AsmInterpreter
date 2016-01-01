@@ -7,107 +7,80 @@ package room517.asm.interpreter.register;
  *
  */
 public class Register {
-    public final static String name[] = {"ah", "al", "bh", "bl", "dh", "dl", "cx"};
-    public final static String name2[] = {"ax", "bx", "cx", "dx",
+    public final static String name[] = {"ax", "bx", "cx", "dx",
                                           "ah", "al", "bh", "bl", "ch", "cl", "dh", "dl"};
-    static int value[] = {0, 0, 0, 0, 0, 0, 0};
-    static int value2[] = {0, 0, 0, 0};
+    static long value[] = {0, 0, 0, 0};
 
-
-//    public void set(String reg_name, int setValue)
-//    {
-//        System.out.println("setValue:"+setValue);
-//        System.out.println(reg_name+":"+get(reg_name));
-//        if(reg_name.charAt(1) == 'l')
-//        {
-//            for(int i = 0; i < value2.length; i ++)
-//            {
-//                if(reg_name.charAt(0) == name2[i].charAt(0))
-//                {
-//                    setValue = 0x00FF & setValue;
-//                    value2[i] = 0xFF00 & value2[i];
-//                    value2[i] = setValue & value2[i];
-//                    break;
-//                }
-//            }
-//        }else if(reg_name.charAt(1) == 'h'){
-//            for(int i = 0; i < value2.length; i ++)
-//            {
-//                if(reg_name.charAt(0) == name2[i].charAt(0))
-//                {
-//                    setValue = 0xFF00 & setValue;
-//                    value2[i] = 0x00FF & value2[i];
-//                    value2[i] = setValue & value2[i];
-//                    break;
-//                }
-//            }
-//        }else{
-//            for(int i = 0; i < value2.length; i ++)
-//            {
-//                if(reg_name.charAt(0) == name2[i].charAt(0))
-//                {
-//                    value2[i] = setValue;
-//                    break;
-//                }
-//            }
-//        }
-//    }
-//
-//    public int get(String reg_name)
-//    {
-//        if(reg_name.charAt(1) == 'l')
-//        {
-//            for(int i = 0; i < value2.length; i ++)
-//            {
-//                if(reg_name.charAt(0) == name2[i].charAt(0))
-//                {
-//                    return value2[i] & 0x00FF;
-//                }
-//            }
-//        }else if(reg_name.charAt(1) == 'h'){
-//            for(int i = 0; i < value2.length; i ++)
-//            {
-//                if(reg_name.charAt(0) == name2[i].charAt(0))
-//                {
-//                    int tmp = value2[i] & 0xFF00;
-//                    tmp = tmp >> 16;
-//                    return tmp;
-//                }
-//            }
-//        }else{
-//            for(int i = 0; i < value2.length; i ++)
-//            {
-//                if(reg_name.charAt(0) == name2[i].charAt(0))
-//                {
-//                    return value2[i];
-//                }
-//            }
-//        }
-//        System.err.println(reg_name+"寄存器不存在!");
-//        return -1;
-//    }
-
-    public void set(String reg_name, int setValue)
+    public static void set(String reg_name, long setValue)
     {
-        for(int i = 0; i < name.length; i ++)
+        if(reg_name.charAt(1) == 'l')
         {
-            if(reg_name.equals(name[i]))
+            for(int i = 0; i < value.length; i ++)
             {
-                value[i] = setValue;
-                break;
+                if(reg_name.charAt(0) == name[i].charAt(0))
+                {
+                    setValue = 0x00000FFFF & setValue;
+                    value[i] = 0x0FFFF0000 & value[i];
+                    value[i] = setValue | value[i];
+                    break;
+                }
+            }
+        }else if(reg_name.charAt(1) == 'h'){
+            for(int i = 0; i < value.length; i ++)
+            {
+                if(reg_name.charAt(0) == name[i].charAt(0))
+                {
+                    setValue = 0x00000FFFF & setValue;
+                    setValue = setValue << 16;
+                    value[i] = 0x00000FFFF & value[i];
+                    value[i] = setValue | value[i];
+                    break;
+                }
+            }
+        }else{
+            for(int i = 0; i < value.length; i ++)
+            {
+                if(reg_name.charAt(0) == name[i].charAt(0))
+                {
+                    value[i] = setValue;
+                    break;
+                }
             }
         }
     }
-    public int get(String reg_name)
+
+    public static long get(String reg_name)
     {
-        for(int i = 0; i < name.length; i ++)
+        if(reg_name.charAt(1) == 'l')
         {
-            if(reg_name.equals(name[i]))
+            for(int i = 0; i < value.length; i ++)
             {
-                return value[i];
+                if(reg_name.charAt(0) == name[i].charAt(0))
+                {
+                    return value[i] & 0x00000FFFF;
+                }
+            }
+        }else if(reg_name.charAt(1) == 'h'){
+            for(int i = 0; i < value.length; i ++)
+            {
+                if(reg_name.charAt(0) == name[i].charAt(0))
+                {
+                    long tmp = value[i] & 0x0FFFF0000;
+                    tmp = tmp >> 16;
+                    return tmp;
+                }
+            }
+        }else{
+            for(int i = 0; i < value.length; i ++)
+            {
+                if(reg_name.charAt(0) == name[i].charAt(0))
+                {
+                    return value[i];
+                }
             }
         }
         System.err.println(reg_name+"寄存器不存在!");
         return -1;
     }
+
 }

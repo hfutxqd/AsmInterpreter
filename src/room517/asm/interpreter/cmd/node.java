@@ -15,11 +15,7 @@ public class node {
     void save(Vector<String> words)
     {
         String command = (words.size() > 0 ? words.get(0) : "");
-        if (command.equals(""))
-        {
-            return;
-        }
-        else if (command.equals("xch"))
+        if (command.equals("xch"))
         {
             substance = new xch(words.get(1), words.get(2));
         }
@@ -135,7 +131,7 @@ public class node {
     public void read_asm()
     {
         String sentence;
-        Vector<String> words = new Vector<>();
+        Vector<String> words;
         do {
             if (fin == null) {
                 return;

@@ -6,17 +6,13 @@ package room517.asm.interpreter.cmd;
  */
 public class add extends ope {
     @Override
-    int operate(int left, int right) {
+    long operate(long left, long right) {
         return left + right;
     }
 
     public add(String o1, String o2)
     {
         super(o1, o2);
-    }
-    public add()
-    {
-        super();
     }
 
 }

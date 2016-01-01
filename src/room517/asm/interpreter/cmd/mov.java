@@ -1,5 +1,7 @@
 package room517.asm.interpreter.cmd;
 
+import room517.asm.interpreter.register.Register;
+
 /**
  * Created by Henry on 2015/12/31.
  *
@@ -8,11 +10,11 @@ public class mov extends cmd {
 
     void func_1()
     {
-        reg.set(operand_1, str_to_int(operand_2));
+        Register.set(operand_1, str_to_int(operand_2));
     }
     void func_2()
     {
-        reg.set(operand_1, reg.get(operand_2));
+        Register.set(operand_1, Register.get(operand_2));
     }
     public mov(String o1, String o2)
     {

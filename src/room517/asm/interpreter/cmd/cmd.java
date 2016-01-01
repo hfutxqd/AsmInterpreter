@@ -29,8 +29,8 @@ public abstract class cmd {
         return false;
     }
 
-    public static int str_to_int(String num_str)
+    public static long str_to_int(String num_str)
     {
-        return Integer.valueOf(num_str);
+        return Long.valueOf(num_str);
     }
 }

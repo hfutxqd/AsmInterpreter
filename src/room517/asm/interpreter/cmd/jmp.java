@@ -11,11 +11,6 @@ public class jmp extends cmd {
         operand_1 = o1;
         ptr = p;
     }
-    public jmp()
-    {
-        operand_1 = "";
-        ptr = null;
-    }
 
     @Override
     public void func() {

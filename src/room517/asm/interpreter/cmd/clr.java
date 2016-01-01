@@ -1,5 +1,7 @@
 package room517.asm.interpreter.cmd;
 
+import room517.asm.interpreter.register.Register;
+
 /**
  * Created by Henry on 2015/12/31.
  *
@@ -13,6 +15,6 @@ public class clr extends cmd {
     }
     public void func()
     {
-        reg.set(operand_1, 0);
+        Register.set(operand_1, 0);
     }
 }
