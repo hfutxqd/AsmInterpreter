@@ -6,15 +6,15 @@ import room517.asm.interpreter.register.Register;
  * Created by Henry on 2015/12/31.
  *
  */
-public class clr extends cmd {
+public class clr extends Command {
 
     public clr(String o1)
     {
-        operand_1 = o1;
-        operand_2 = "";
+        operStr1 = o1;
+        operStr2 = "";
     }
     public void func()
     {
-        Register.set(operand_1, 0);
+        Register.set(operStr1, 0);
     }
 }

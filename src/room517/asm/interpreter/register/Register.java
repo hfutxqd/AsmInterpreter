@@ -7,56 +7,62 @@ package room517.asm.interpreter.register;
  *
  */
 public class Register {
-    public final static String name[] = {"ax", "bx", "cx", "dx",
+    public final static String regName[] = {"ax", "bx", "cx", "dx",
                                           "ah", "al", "bh", "bl",
                                           "ch", "cl", "dh", "dl"};
-    static long[]  value= {0, 0, 0, 0};
+    static long[] regValue = {0, 0, 0, 0};
 
-    static long[] cmp_buffer = {-1, -1};
-
-    public static void setCmp(long a, long b)
-    {
-        cmp_buffer[0] = a;
-        cmp_buffer[1] = b;
+    public enum OpeType{
+        add, sub, and, or, xor, not, neg, mul16, mul32, imul16, imul32, div16, div32, idiv16, idiv32
     }
 
-    public static long[] getCmp()
+    static long[] flagsFrom = {-1, -1};
+    static OpeType type = null;
+
+    public static void setFlags(long left, long right, OpeType _type)
     {
-        return cmp_buffer;
+        flagsFrom[0] = left;
+        flagsFrom[1] = right;
+        type = _type;
+    }
+
+    public static long[] getFlagsFrom()
+    {
+        return flagsFrom;
     }
 
     public static void set(String reg_name, long setValue)
     {
         if(reg_name.charAt(1) == 'l')
         {
-            for(int i = 0; i < value.length; i ++)
+            for(int i = 0; i < regValue.length; i ++)
             {
-                if(reg_name.charAt(0) == name[i].charAt(0))
+                if(reg_name.charAt(0) == regName[i].charAt(0))
                 {
-                    setValue = 0x00000FFFF & setValue;
-                    value[i] = 0x0FFFF0000 & value[i];
-                    value[i] = setValue | value[i];
+                    setValue = 0x00000FFFFL & setValue;
+                    regValue[i] = 0x0FFFF0000L & regValue[i];
+                    regValue[i] = setValue | regValue[i];
                     break;
                 }
             }
         }else if(reg_name.charAt(1) == 'h'){
-            for(int i = 0; i < value.length; i ++)
+            for(int i = 0; i < regValue.length; i ++)
             {
-                if(reg_name.charAt(0) == name[i].charAt(0))
+                if(reg_name.charAt(0) == regName[i].charAt(0))
                 {
-                    setValue = 0x00000FFFF & setValue;
+                    setValue = 0x00000FFFFL & setValue;
                     setValue = setValue << 16;
-                    value[i] = 0x00000FFFF & value[i];
-                    value[i] = setValue | value[i];
+                    regValue[i] = 0x00000FFFFL & regValue[i];
+                    regValue[i] = setValue | regValue[i];
                     break;
                 }
             }
         }else{
-            for(int i = 0; i < value.length; i ++)
+            for(int i = 0; i < regValue.length; i ++)
             {
-                if(reg_name.charAt(0) == name[i].charAt(0))
+                if(reg_name.charAt(0) == regName[i].charAt(0))
                 {
-                    value[i] = setValue;
+                    regValue[i] = setValue;
                     break;
                 }
             }
@@ -67,33 +73,34 @@ public class Register {
     {
         if(reg_name.charAt(1) == 'l')
         {
-            for(int i = 0; i < value.length; i ++)
+            for(int i = 0; i < regValue.length; i ++)
             {
-                if(reg_name.charAt(0) == name[i].charAt(0))
+                if(reg_name.charAt(0) == regName[i].charAt(0))
                 {
-                    return value[i] & 0x00000FFFF;
+                    return regValue[i] & 0x000000000000FFFFL;
                 }
             }
         }else if(reg_name.charAt(1) == 'h'){
-            for(int i = 0; i < value.length; i ++)
+            for(int i = 0; i < regValue.length; i ++)
             {
-                if(reg_name.charAt(0) == name[i].charAt(0))
+                if(reg_name.charAt(0) == regName[i].charAt(0))
                 {
-                    long tmp = value[i] & 0x0FFFF0000;
+                    long tmp = regValue[i] & 0x0000000FFFF0000L;
                     tmp = tmp >> 16;
                     return tmp;
                 }
             }
         }else{
-            for(int i = 0; i < value.length; i ++)
+            for(int i = 0; i < regValue.length; i ++)
             {
-                if(reg_name.charAt(0) == name[i].charAt(0))
+                if(reg_name.charAt(0) == regName[i].charAt(0))
                 {
-                    return value[i];
+                    return regValue[i] & 0x0000000FFFFFFFFL;
                 }
             }
         }
         System.err.println(reg_name+"寄存器不存在!");
+        System.exit(-1);
         return -1;
     }
 

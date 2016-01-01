@@ -13,10 +13,10 @@ public class jnz extends jmp {
     }
     @Override
     public void func() {
-        long[] nums = Register.getCmp();
+        long[] nums = Register.getFlagsFrom();
         if (nums[0] != 0)
         {
-            jump(operand_1);
+            jump(operStr1);
         }
         else
         {

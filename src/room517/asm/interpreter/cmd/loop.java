@@ -6,11 +6,11 @@ import room517.asm.interpreter.register.Register;
  * Created by Henry on 2015/12/31.
  *
  */
-public class loop extends cmd {
+public class loop extends Command {
     node ptr;
     public loop(String o1, node p)
     {
-        operand_1 = o1;
+        operStr1 = o1;
         ptr = p;
     }
 
@@ -19,11 +19,11 @@ public class loop extends cmd {
         Register.set("cx", Register.get("cx") - 1);
         if (Register.get("cx") > 0)
         {
-            cmd_buffer p;
+            cmdBuffer p;
             p = label_buf;
             while (p != null)
             {
-                if (operand_1.equals(p.label_name))
+                if (operStr1.equals(p.label_name))
                 {
                     ptr.convert(p.label_site);
                     return;

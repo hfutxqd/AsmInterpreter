@@ -8,7 +8,7 @@ import java.io.IOException;
  * Created by Henry on 2015/12/31.
  *
  */
-public class int_21 extends cmd {
+public class int_21 extends Command {
     void func_ah1()
     {
         char ch = 0;

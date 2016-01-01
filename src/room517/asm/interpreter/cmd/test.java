@@ -6,16 +6,13 @@ import room517.asm.interpreter.register.Register;
  * Created by Henry on 2016/1/1.
  *
  */
-public class cmp extends operation {
-
-    public cmp(String o1, String o2) {
-        operStr1 = o1;
-        operStr2 = o2;
-    }
-
+public class test extends operation{
     @Override
     long operate(long left, long right) {
-        Register.setFlags(left, right, Register.OpeType.sub);
+        Register.setFlags(left, right, Register.OpeType.and);
         return left;
+    }
+    public test(String o1, String o2) {
+        super(o1, o2);
     }
 }

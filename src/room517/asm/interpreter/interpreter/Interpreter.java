@@ -22,10 +22,14 @@ public class Interpreter {
         begin.run_asm();
         long time2 = System.currentTimeMillis();
         System.out.println("\nExecuted in "+(time2 - time1) +" ms.");
-        System.out.println("Register status:");
-        System.out.println("ax:"+ Register.get("ax"));
-        System.out.println("bx:"+ Register.get("bx"));
-        System.out.println("cx:"+ Register.get("cx"));
-        System.out.println("dx:"+ Register.get("dx"));
+        System.out.println("Registers' final status:");
+        System.out.println("ax:"+ Register.get("ax") +
+                "\tah:"+ Register.get("ah") + "\tal:"+ Register.get("al"));
+        System.out.println("bx:"+ Register.get("bx") +
+                "\tbh:"+ Register.get("bh") + "\tbl:"+ Register.get("bl"));
+        System.out.println("cx:"+ Register.get("cx") +
+                "\tch:"+ Register.get("ch") + "\tcl:"+ Register.get("cl"));
+        System.out.println("dx:"+ Register.get("dx") +
+                "\tdh:"+ Register.get("dh") + "\tdl:"+ Register.get("dl"));
     }
 }

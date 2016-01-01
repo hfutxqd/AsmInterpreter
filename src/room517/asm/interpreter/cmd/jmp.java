@@ -4,22 +4,22 @@ package room517.asm.interpreter.cmd;
  * Created by Henry on 2015/12/31.
  *
  */
-public class jmp extends cmd {
+public class jmp extends Command {
     node ptr;
     public jmp(String o1, node p)
     {
-        operand_1 = o1;
+        operStr1 = o1;
         ptr = p;
     }
 
     @Override
     public void func() {
-        jump(operand_1);
+        jump(operStr1);
     }
 
     public void jump(String site)
     {
-        cmd_buffer p;
+        cmdBuffer p;
         p = label_buf;
         while (p != null)
         {

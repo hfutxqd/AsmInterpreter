@@ -6,16 +6,18 @@ import room517.asm.interpreter.register.Register;
  * Created by Henry on 2015/12/31.
  *
  */
-public class dec extends cmd {
+public class dec extends Command {
 
     public dec(String o1)
     {
-        operand_1 = o1;
-        operand_2 = "";
+        operStr1 = o1;
+        operStr2 = "";
     }
 
     @Override
     public void func() {
-        Register.set(operand_1, Register.get(operand_1) - 1);
+        long tmp = Register.get(operStr1);
+        Register.setFlags(tmp, 1, Register.OpeType.sub);
+        Register.set(operStr1, tmp - 1);
     }
 }

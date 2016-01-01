@@ -14,10 +14,10 @@ public class jne  extends  jmp{
 
     @Override
     public void func() {
-        long[] nums = Register.getCmp();
+        long[] nums = Register.getFlagsFrom();
         if (nums[0] != nums[1])
         {
-            jump(operand_1);
+            jump(operStr1);
         }else{
             ptr.convert(null);
         }

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AsmInterpreter:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/AsmInterpreter_jar</output-path>
+    <root id="archive" name="AsmInterpreter.jar">
+      <element id="module-output" name="AsmInterpreter" />
+    </root>
+  </artifact>
+</component>

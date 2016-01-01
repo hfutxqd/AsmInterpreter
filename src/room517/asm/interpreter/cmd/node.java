@@ -8,8 +8,8 @@ import java.util.Vector;
  *
  */
 public class node {
-    cmd substance = null;
-    static cmd_buffer first_label = null;
+    Command substance = null;
+    static cmdBuffer first_label = null;
     node ptr_next = null;
     node ptr_jump = null;
     void save(Vector<String> words)
@@ -23,15 +23,25 @@ public class node {
         {
             substance = new clr(words.get(1));
         }
-        else if (command.equals("anl"))
+        else if (command.equals("and"))
         {
-            substance = new anl(words.get(1), words.get(2));
-        }
-        else if (command.equals("orl"))
+            substance = new and(words.get(1), words.get(2));
+        }else if (command.equals("or"))
         {
-            substance = new orl(words.get(1), words.get(2));
-        }
-        else if (command.equals("mov"))
+            substance = new or(words.get(1), words.get(2));
+        }else if (command.equals("not"))
+        {
+            substance = new not(words.get(1));
+        }else if (command.equals("neg"))
+        {
+            substance = new neg(words.get(1));
+        }else if (command.equals("xor"))
+        {
+            substance = new xor(words.get(1), words.get(2));
+        }else if (command.equals("test"))
+        {
+            substance = new test(words.get(1), words.get(2));
+        }else if (command.equals("mov"))
         {
             substance = new mov(words.get(1), words.get(2));
         }
@@ -87,6 +97,22 @@ public class node {
         {
             substance = new sub(words.get(1), words.get(2));
         }
+        else if (command.equals("mul16"))
+        {
+            substance = new mul16(words.get(1));
+        }
+        else if (command.equals("mul32"))
+        {
+            substance = new mul32(words.get(1));
+        }
+        else if (command.equals("div16"))
+        {
+            substance = new div16(words.get(1));
+        }
+        else if (command.equals("div32"))
+        {
+            substance = new div32(words.get(1));
+        }
         else if	(command.equals("int") && words.get(1).equals("20"))
         {
             substance = new int_20();
@@ -106,13 +132,13 @@ public class node {
                     command += words.get(0).charAt(i);
                 }
             }
-            cmd_buffer p = first_label;
+            cmdBuffer p = first_label;
             while (p.next_label != null) {
                 p = p.next_label;
             }
             p.label_site = this;
             p.label_name = command;
-            p.next_label = new cmd_buffer();
+            p.next_label = new cmdBuffer();
             substance = new label();
         }
     }
@@ -122,9 +148,9 @@ public class node {
     {
         if (first_label == null)
 
-            first_label = new cmd_buffer();
+            first_label = new cmdBuffer();
 
-        cmd.set_buffer(first_label);
+        Command.set_buffer(first_label);
     }
 
     public void convert(node p)

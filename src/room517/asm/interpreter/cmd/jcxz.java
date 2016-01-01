@@ -16,7 +16,7 @@ public class jcxz extends jmp{
     public void func() {
         if(Register.get("cx") == 0)
         {
-            jump(operand_1);
+            jump(operStr1);
         }
     }
 }
