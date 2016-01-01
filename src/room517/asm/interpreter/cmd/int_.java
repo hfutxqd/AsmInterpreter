@@ -9,9 +9,6 @@ import java.io.IOException;
  *
  */
 public class int_ extends operation {
-
-
-
     void func_ah1()
     {
         char ch = 0;
@@ -34,10 +31,8 @@ public class int_ extends operation {
 
     void func_ah4c()
     {
-        label_buf.label_site = null;
-        label_buf.next_label = null;
-        label_buf.label_name = "";
-        label_buf = null;
+        curr_node.ptr_next = null;
+        curr_node.ptr_jump = null;
     }
 
     @Override
@@ -61,10 +56,11 @@ public class int_ extends operation {
         }
         return 0;
     }
-
-    public int_(String code)
+    node curr_node;
+    public int_(String code, node ptr_node)
     {
         operStr1 = code;
         operStr2 = "";
+        curr_node = ptr_node;
     }
 }

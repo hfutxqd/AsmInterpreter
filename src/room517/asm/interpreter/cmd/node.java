@@ -115,7 +115,7 @@ public class node {
         }
         else if (command.equals("int"))
         {
-            substance = new int_(words.get(1));
+            substance = new int_(words.get(1), this);
         }
         else if (words.get(0).charAt(words.get(0).length() - 1) == ':' ||
                 (words.size() > 1 && words.get(1).equals(":")))
