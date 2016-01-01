@@ -7,7 +7,6 @@ import room517.asm.interpreter.register.Register;
  *
  */
 public abstract class cmd {
-    Register reg = new Register();
     static cmd_buffer label_buf = null;
     String operand_1;
     String operand_2;
@@ -29,7 +28,7 @@ public abstract class cmd {
         return false;
     }
 
-    public static long str_to_int(String num_str)
+    public static long str_to_long(String num_str)
     {
         return Long.valueOf(num_str);
     }

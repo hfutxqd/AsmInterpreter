@@ -8,8 +8,22 @@ package room517.asm.interpreter.register;
  */
 public class Register {
     public final static String name[] = {"ax", "bx", "cx", "dx",
-                                          "ah", "al", "bh", "bl", "ch", "cl", "dh", "dl"};
-    static long value[] = {0, 0, 0, 0};
+                                          "ah", "al", "bh", "bl",
+                                          "ch", "cl", "dh", "dl"};
+    static long[]  value= {0, 0, 0, 0};
+
+    static long[] cmp_buffer = {-1, -1};
+
+    public static void setCmp(long a, long b)
+    {
+        cmp_buffer[0] = a;
+        cmp_buffer[1] = b;
+    }
+
+    public static long[] getCmp()
+    {
+        return cmp_buffer;
+    }
 
     public static void set(String reg_name, long setValue)
     {

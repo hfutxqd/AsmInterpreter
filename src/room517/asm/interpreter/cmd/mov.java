@@ -10,7 +10,7 @@ public class mov extends cmd {
 
     void func_1()
     {
-        Register.set(operand_1, str_to_int(operand_2));
+        Register.set(operand_1, str_to_long(operand_2));
     }
     void func_2()
     {

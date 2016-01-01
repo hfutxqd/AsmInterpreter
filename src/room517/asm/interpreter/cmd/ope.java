@@ -11,9 +11,8 @@ public abstract class ope extends cmd {
     @Override
     public void func() {
         if(!is_reg(operand_2)) {
-            Register.set(operand_1, operate(Register.get(operand_1), str_to_int(operand_2)));
-        }
-        else {
+            Register.set(operand_1, operate(Register.get(operand_1), str_to_long(operand_2)));
+        }else {
             Register.set(operand_1, operate(Register.get(operand_1), Register.get(operand_2)));
         }
     }

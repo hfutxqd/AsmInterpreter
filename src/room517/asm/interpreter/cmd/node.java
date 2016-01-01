@@ -15,9 +15,9 @@ public class node {
     void save(Vector<String> words)
     {
         String command = (words.size() > 0 ? words.get(0) : "");
-        if (command.equals("xch"))
+        if (command.equals("xchg"))
         {
-            substance = new xch(words.get(1), words.get(2));
+            substance = new xchg(words.get(1), words.get(2));
         }
         else if (command.equals("clr"))
         {
@@ -38,12 +38,16 @@ public class node {
         else if (command.equals("loop"))
         {
             substance = new loop(words.get(1), this);
-        }
-        else if (command.equals("jmp"))
+        }else if (command.equals("cmp"))
+        {
+            substance = new cmp(words.get(1), words.get(2));
+        }else if (command.equals("jmp"))
         {
             substance = new jmp(words.get(1), this);
-        }
-        else if (command.equals("jg"))
+        }else if (command.equals("jcxz"))
+        {
+            substance = new jcxz(words.get(1), this);
+        }else if (command.equals("jg"))
         {
             substance = new jg(words.get(1), this);
         }

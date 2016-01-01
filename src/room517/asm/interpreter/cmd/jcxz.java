@@ -3,23 +3,20 @@ package room517.asm.interpreter.cmd;
 import room517.asm.interpreter.register.Register;
 
 /**
- * Created by Henry on 2015/12/31.
+ * Created by Henry on 2016/1/1.
  *
  */
-public class je extends  jmp {
-    public je(String o1, node p)
+public class jcxz extends jmp{
+    public jcxz(String o1, node p)
     {
         super(o1, p);
     }
 
     @Override
     public void func() {
-        long[] nums = Register.getCmp();
-        if (nums[0] == nums[1])
+        if(Register.get("cx") == 0)
         {
             jump(operand_1);
-        }else{
-            ptr.convert(null);
         }
     }
 }

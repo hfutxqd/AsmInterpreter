@@ -14,7 +14,8 @@ public class jne  extends  jmp{
 
     @Override
     public void func() {
-        if (Register.get("bh") != Register.get("dh"))
+        long[] nums = Register.getCmp();
+        if (nums[0] != nums[1])
         {
             jump(operand_1);
         }else{

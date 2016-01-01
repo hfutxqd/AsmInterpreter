@@ -13,7 +13,8 @@ public class jz extends jmp {
     }
     @Override
     public void func() {
-        if (Register.get("bh") == 0)
+        long[] nums = Register.getCmp();
+        if (nums[0] == 0)
         {
             jump(operand_1);
         }

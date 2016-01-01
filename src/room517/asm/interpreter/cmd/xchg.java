@@ -6,8 +6,8 @@ import room517.asm.interpreter.register.Register;
  * Created by Henry on 2015/12/31.
  *
  */
-public class xch extends cmd {
-    public xch(String o1, String o2)
+public class xchg extends cmd {
+    public xchg(String o1, String o2)
     {
         operand_1 = o1; operand_2 = o2;
     }
