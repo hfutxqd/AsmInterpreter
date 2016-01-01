@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: room517.asm.interpreter.test.Main
+Main-Class: room517.asm.interpreter.main.Init
 

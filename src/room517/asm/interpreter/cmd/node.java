@@ -113,13 +113,9 @@ public class node {
         {
             substance = new div32(words.get(1));
         }
-        else if	(command.equals("int") && words.get(1).equals("20"))
+        else if (command.equals("int"))
         {
-            substance = new int_20();
-        }
-        else if (command.equals("int") && words.get(1).equals("21"))
-        {
-            substance = new int_21();
+            substance = new int_(words.get(1));
         }
         else if (words.get(0).charAt(words.get(0).length() - 1) == ':' ||
                 (words.size() > 1 && words.get(1).equals(":")))
@@ -174,7 +170,7 @@ public class node {
                     return;
                 }
             }
-            words = SeparateWord(sentence);
+            words = separateWord(sentence);
         }while (words.size() == 0);
         save(words);
         ptr_next = new node();
@@ -197,7 +193,7 @@ public class node {
         }
     }
 
-    Vector<String> SeparateWord(String sen)
+    Vector<String> separateWord(String sen)
     {
         String temp = "";
         Vector<String> word = new Vector<>();

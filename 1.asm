@@ -1,4 +1,3 @@
-mov dx 0xFFFFFFFF
-mov ax 0xFFFFFFFF
-div32 5000
-int 20
+mov ah, 0x4c
+int 0x21
+mov ax, 0

@@ -33,6 +33,9 @@ public abstract class Command {
         if(num_str.startsWith("'") && num_str.endsWith("'") && num_str.length() > 2)
         {
             return num_str.charAt(1);
+        }else if(num_str.isEmpty() || num_str.equals(""))
+        {
+            return -1;
         }else{
             try{
                 return Long.decode(num_str);
