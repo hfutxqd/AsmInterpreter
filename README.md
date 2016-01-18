@@ -10,7 +10,7 @@ mul16
 mul32  
 div16  
 div32  
-neg
+neg  
 逻辑运算命令：  
 and  
 or  
