@@ -7,10 +7,10 @@ import room517.asm.interpreter.register.Register;
  *
  */
 public abstract class Command {
-    static cmdBuffer label_buf = null;
+    static CmdBuffer label_buf = null;
     String operStr1;
     String operStr2;
-    public static void set_buffer(cmdBuffer b)
+    public static void set_buffer(CmdBuffer b)
     {
         if (label_buf == null)
             label_buf = b;

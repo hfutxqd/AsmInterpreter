@@ -6,7 +6,7 @@ import room517.asm.interpreter.register.Register;
  * Created by Henry on 2015/12/31.
  *
  */
-public abstract class operation extends Command {
+public abstract class Operation extends Command {
     abstract long operate(long left,long right);
     @Override
     public void func() {
@@ -18,12 +18,12 @@ public abstract class operation extends Command {
             operate(str_to_long(operStr1), -1);
         }
     }
-    public operation(String o1, String o2)
+    public Operation(String o1, String o2)
     {
         operStr1 = o1;
         operStr2 = o2;
     }
-    public operation()
+    public Operation()
     {
         operStr1 = "";
         operStr2 = "";

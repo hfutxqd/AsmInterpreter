@@ -6,7 +6,7 @@ import room517.asm.interpreter.register.Register;
  * Created by Henry on 2016/1/1.
  *
  */
-public class mul32 extends operation{
+public class mul32 extends Operation {
     @Override
     long operate(long left, long right) {
         long ax = Register.get("ax");

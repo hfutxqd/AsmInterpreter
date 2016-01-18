@@ -6,7 +6,7 @@ import room517.asm.interpreter.register.Register;
  * Created by Henry on 2016/1/1.
  *
  */
-public class div16 extends operation{
+public class div16 extends Operation {
     @Override
     long operate(long left, long right) {
         long ax = Register.get("ax");

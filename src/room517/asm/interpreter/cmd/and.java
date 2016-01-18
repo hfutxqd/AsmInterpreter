@@ -6,7 +6,7 @@ import room517.asm.interpreter.register.Register;
  * Created by Henry on 2015/12/31.
  *
  */
-public class and extends operation {
+public class and extends Operation {
     @Override
     long operate(long left, long right) {
         Register.setFlags(left, right, Register.OpeType.and);

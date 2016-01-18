@@ -2,13 +2,11 @@ package room517.asm.interpreter.cmd;
 
 import room517.asm.interpreter.register.Register;
 
-import java.math.BigInteger;
-
 /**
  * Created by Henry on 2016/1/1.
  *
  */
-public class div32 extends operation{
+public class div32 extends Operation {
     @Override
     long operate(long left, long right) {
         long ax = Register.get("ax");

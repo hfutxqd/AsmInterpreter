@@ -9,7 +9,7 @@ import java.util.Vector;
  */
 public class node {
     Command substance = null;
-    static cmdBuffer first_label = null;
+    static CmdBuffer first_label = null;
     node ptr_next = null;
     node ptr_jump = null;
     void save(Vector<String> words)
@@ -128,13 +128,13 @@ public class node {
                     command += words.get(0).charAt(i);
                 }
             }
-            cmdBuffer p = first_label;
+            CmdBuffer p = first_label;
             while (p.next_label != null) {
                 p = p.next_label;
             }
             p.label_site = this;
             p.label_name = command;
-            p.next_label = new cmdBuffer();
+            p.next_label = new CmdBuffer();
             substance = new label();
         }
     }
@@ -144,7 +144,7 @@ public class node {
     {
         if (first_label == null)
 
-            first_label = new cmdBuffer();
+            first_label = new CmdBuffer();
 
         Command.set_buffer(first_label);
     }

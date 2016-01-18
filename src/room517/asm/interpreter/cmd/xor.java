@@ -6,7 +6,7 @@ import room517.asm.interpreter.register.Register;
  * Created by Henry on 2016/1/1.
  *
  */
-public class xor extends operation{
+public class xor extends Operation {
     @Override
     long operate(long left, long right) {
         Register.setFlags(left, right, Register.OpeType.xor);

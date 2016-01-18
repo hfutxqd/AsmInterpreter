@@ -8,7 +8,7 @@ import java.io.IOException;
  * Created by Henry on 2015/12/31.
  *
  */
-public class int_ extends operation {
+public class int_ extends Operation {
     void func_ah1()
     {
         char ch = 0;

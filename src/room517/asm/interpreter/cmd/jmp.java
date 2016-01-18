@@ -19,7 +19,7 @@ public class jmp extends Command {
 
     public void jump(String site)
     {
-        cmdBuffer p;
+        CmdBuffer p;
         p = label_buf;
         while (p != null)
         {

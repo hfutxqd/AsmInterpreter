@@ -19,7 +19,7 @@ public class loop extends Command {
         Register.set("cx", Register.get("cx") - 1);
         if (Register.get("cx") > 0)
         {
-            cmdBuffer p;
+            CmdBuffer p;
             p = label_buf;
             while (p != null)
             {

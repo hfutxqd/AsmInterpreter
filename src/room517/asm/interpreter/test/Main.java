@@ -14,7 +14,7 @@ public class Main {
         Interpreter translator = new Interpreter();
         try {
             translator.translate("1.asm");
-        } catch (IOException e) {
+        }catch (IOException e) {
             System.err.println(e.getMessage());
         }
     }
