@@ -2,7 +2,7 @@
 一个简单的汇编语言解释器  
 支持的寄存器有:  
 ax,bx,cx,dx  
-ah,al,bh,bl,ch,cl,dh,dl 
+ah,al,bh,bl,ch,cl,dh,dl  
 操作数只能是立即数和寄存器  
 立即数格式示例：  
 十进制：123  
