@@ -6,7 +6,7 @@ add
 inc  
 sub  
 dec  
-mul16 
+mul16  
 mul32  
 div16  
 div32  
