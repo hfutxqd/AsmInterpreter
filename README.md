@@ -1,5 +1,5 @@
 # Asm_Interpreter
-一个简单的汇编语言解释器  
+一个简单的32位汇编语言解释器  
 支持的寄存器有:  
 ax,bx,cx,dx  
 ah,al,bh,bl,ch,cl,dh,dl  
@@ -40,3 +40,4 @@ test
 xchg  
 clr  
 int  (只支持21)  
+所有命令的格式参考8086汇编
