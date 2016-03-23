@@ -9,8 +9,8 @@ ah,al,bh,bl,ch,cl,dh,dl
 八进制:0123  
 十六进制:0x123  
 字符格式示例：'a'  
-支持的命令有：  
-算术运算命令：  
+##支持的命令有：  
+###算术运算命令： 
 add  
 inc  
 sub  
@@ -20,12 +20,12 @@ mul32
 div16  
 div32  
 neg  
-逻辑运算命令：  
+###逻辑运算命令：  
 and  
 or  
 not  
 xor  
-转移命令：  
+###转移命令：  
 cmp  
 jcxz  
 jz  
@@ -35,7 +35,7 @@ jne
 jnz  
 jmp  
 loop  
-其他命令:  
+###其他命令:  
 test  
 xchg  
 clr  
